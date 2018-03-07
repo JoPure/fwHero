@@ -1,0 +1,460 @@
+<!DOCTYPE HTML>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta content="target-densitydpi=device-dpi,width=750,user-scalable=no,minimal-ui" name="viewport">
+		<script type="text/javascript">
+			var _hmt = _hmt || [];
+			(function() {
+				var hm = document.createElement("script");
+				hm.src = "//hm.baidu.com/hm.js?5ae819d0750c541519b0664ed7e9ca27";
+				var s = document.getElementsByTagName("script")[0];
+				s.parentNode.insertBefore(hm, s);
+			})();
+			if (!/(iphone|android)/ig.test(navigator.userAgent.toLowerCase())) {
+				location.href = "//world.7road.com/"
+			}
+		</script>
+		<title>发现:另一个全新的世界,没有1400光年的遥远,只在你的指尖</title>
+
+		<link rel="stylesheet" href="css/main.css" />
+
+		<link href="http://world.7road.com/static/common/img/7r_favicon_347ec11.ico" type="image/x-icon" rel="icon">
+
+	</head>
+
+	<body>
+		<div style="display: none;"><img src="img/share_icon.jpg" /></div>
+
+		<div class="iwrap">
+			<div class="loading" id="loading">
+				<div class="inner">
+					<p class="loading_rate" id="loading_rate">0%</p>
+					<p class="loading_progress">
+						<em></em>
+						<span class="bar" id="bar">
+                    <b></b>
+                </span>
+					</p>
+				</div>
+			</div>
+
+			<div class="move_tip_box">
+				<div class="move_tip_icon"></div>
+				<div class="move_tip_text"></div>
+			</div>
+			<div class="gesture_tip_box">
+				<div class="gesture_tip"></div>
+				<!--
+        <div class="gesture_tip_right"></div>        
+        <div class="gesture_tip_left"></div>
+        -->
+				<div class="gesture_tip_text"></div>
+			</div>
+
+			<div id="container" class="container">
+				<div class="audio_box audio_box_01 audio_control">
+					<img src="img/audio.png" />
+					<span></span>
+				</div>
+				<div class="audio_box audio_box_02 audio_control">
+					<img src="img/audio.png" />
+					<span></span>
+				</div>
+				<div class="audio_box audio_box_03 audio_control">
+					<img src="img/audio.png" />
+					<span></span>
+				</div>
+				<div class="audio_box audio_box_04 audio_control">
+					<img src="img/audio.png" />
+					<span></span>
+				</div>
+				<div class="fire fire_03"></div>
+				<div class="swirl"></div>
+				<div class="main_city_box audio_control">
+					<img src="img/main_city.png" />
+					<span></span>
+				</div>
+				<div class="off_the_door_box audio_control">
+					<img src="img/off_the_door.png" />
+					<span></span>
+				</div>
+				<img class="new_full_screen" src="img/new_full_screen.jpg" />
+			</div>
+			<div class="logo"></div>
+			<div class="full_screen_tip"></div>
+			<div class="drag_box">
+				<div class="home_text"></div>
+				<div class="stone_box">
+					<div class="fire fire_01"></div>
+					<div class="fire fire_02"></div>
+					<div class="round_01"></div>
+					<div class="round_02"></div>
+					<div class="round_03"></div>
+					<div class="round_04"></div>
+					<div class="light_box"></div>
+					<div class="light_box_02"></div>
+					<div class="light_box_03"></div>
+					<div class="world_box"></div>
+					<div class="stone_lists">
+						<div class="stone stone_01"></div>
+						<div class="stone stone_02"></div>
+						<div class="stone stone_03"></div>
+						<div class="stone stone_04"></div>
+						<div class="stone stone_05"></div>
+					</div>
+				</div>
+				<div class="drag_stone_lists">
+					<div class="drag_stone drag_stone_01"></div>
+					<div class="drag_stone drag_stone_02"></div>
+					<div class="drag_stone drag_stone_03"></div>
+					<div class="drag_stone drag_stone_04"></div>
+					<div class="drag_stone drag_stone_05"></div>
+				</div>
+			</div>
+			<div class="main_city">
+				<div class="main_city_text">
+					<p>长按下方二维码,关注公众号</p>
+					<p>了解更多<span>精彩内容</span></P>
+					<p>更有<span>价值888元丰富好礼</span>等你拿!</p>
+				</div>
+				<img src="img/two_code.png" />
+			</div>
+			<div class="share_weixin"></div>
+
+		</div>
+		<div id="audio_box" style="display: none;"></div>
+		<div id="audio_box2" style="display: none;"></div>
+		<div class="btn_on_off">
+			<div class="btn_on" id="btn_on"></div>
+			<div class="btn_off" id="btn_off"></div>
+		</div>
+		<div id="audio_full_screen_box" style="display: none;">
+		</div>
+
+		<script type="text/javascript" src="js/zepto.min.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				var img_path = ""
+				var img_sources = ["http://res-cdn.rhweb.changic.net.cn/xuannian/xuannian/mobile/img/audio_615ef49.png", "http://res-cdn.rhweb.changic.net.cn/xuannian/xuannian/mobile/img/bg_3f99c34.jpg", "http://res-cdn.rhweb.changic.net.cn/xuannian/xuannian/mobile/img/d_icon_1239f42.png", "http://res-cdn.rhweb.changic.net.cn/xuannian/xuannian/mobile/img/fire_bbd4177.png", "http://res-cdn.rhweb.changic.net.cn/xuannian/xuannian/mobile/img/full_screen_tip_b340263.png", "http://res-cdn.rhweb.changic.net.cn/xuannian/xuannian/mobile/img/gesture_ab89aac.png", "http://res-cdn.rhweb.changic.net.cn/xuannian/xuannian/mobile/img/gesture_left_5d901a1.png", "http://res-cdn.rhweb.changic.net.cn/xuannian/xuannian/mobile/img/gesture_right_e507e29.png", "http://res-cdn.rhweb.changic.net.cn/xuannian/xuannian/mobile/img/gesture_tip_text_ec91832.png", "http://res-cdn.rhweb.changic.net.cn/xuannian/xuannian/mobile/img/home_text_d8df269.png", "http://res-cdn.rhweb.changic.net.cn/xuannian/xuannian/mobile/img/l_bg_40906e7.png", "http://res-cdn.rhweb.changic.net.cn/xuannian/xuannian/mobile/img/l_icon_cd771cb.png", "http://res-cdn.rhweb.changic.net.cn/xuannian/xuannian/mobile/img/light_de49abd.png", "http://res-cdn.rhweb.changic.net.cn/xuannian/xuannian/mobile/img/loading_text_7db4134.png", "http://res-cdn.rhweb.changic.net.cn/xuannian/xuannian/mobile/img/loading_text_light_f171f14.png", "http://res-cdn.rhweb.changic.net.cn/xuannian/xuannian/mobile/img/main_city_6d5527c.png", "http://res-cdn.rhweb.changic.net.cn/xuannian/xuannian/mobile/img/move_tip_icon_f4aa863.png", "http://res-cdn.rhweb.changic.net.cn/xuannian/xuannian/mobile/img/move_tip_text_bac5397.png", "http://res-cdn.rhweb.changic.net.cn/xuannian/xuannian/mobile/img/new_full_screen_b914792.jpg", "http://res-cdn.rhweb.changic.net.cn/xuannian/xuannian/mobile/img/o_icon_d3db958.png", "http://res-cdn.rhweb.changic.net.cn/xuannian/xuannian/mobile/img/off_00e24a2.png", "http://res-cdn.rhweb.changic.net.cn/xuannian/xuannian/mobile/img/off_the_door_2ed88a9.png", "http://res-cdn.rhweb.changic.net.cn/xuannian/xuannian/mobile/img/on_44086c7.png", "http://res-cdn.rhweb.changic.net.cn/xuannian/xuannian/mobile/img/r_icon_4dbbb7a.png", "http://res-cdn.rhweb.changic.net.cn/xuannian/xuannian/mobile/img/round_01_f8aaffe.png", "http://res-cdn.rhweb.changic.net.cn/xuannian/xuannian/mobile/img/round_02_6f52379.png", "http://res-cdn.rhweb.changic.net.cn/xuannian/xuannian/mobile/img/round_03_1aad66f.png", "http://res-cdn.rhweb.changic.net.cn/xuannian/xuannian/mobile/img/round_04_aa142d3.png", "http://res-cdn.rhweb.changic.net.cn/xuannian/xuannian/mobile/img/share_icon_ab88341.jpg", "http://res-cdn.rhweb.changic.net.cn/xuannian/xuannian/mobile/img/share_weixin_2e4429b.png", "http://res-cdn.rhweb.changic.net.cn/xuannian/xuannian/mobile/img/swirl_b010d92.png", "http://res-cdn.rhweb.changic.net.cn/xuannian/xuannian/mobile/img/two_code_cc9d840.png", "http://res-cdn.rhweb.changic.net.cn/xuannian/xuannian/mobile/img/w_icon_e4593b4.png", "http://res-cdn.rhweb.changic.net.cn/xuannian/xuannian/mobile/img/world_c9593a3.png"]
+				var audio_box = $('#audio_box')
+				var audio_box2 = $('#audio_box2')
+				audio_box.html('<audio id="audio" preload="auto" autoplay="autoplay" loop="loop" src="http://res-cdn.rhweb.changic.net.cn/xuannian/xuannian/mobile/media/battle.mp3"></audio>')
+				audio_box2.html('<audio id="audio2" preload="auto" src="http://res-cdn.rhweb.changic.net.cn/xuannian/xuannian/mobile/media/equip_stall.mp3"></audio>')
+				audio = $('#audio').get(0)
+				audio.play()
+				var btn_on = $('#btn_on')
+				var btn_off = $('#btn_off')
+				btn_on.on('click', function() {
+					audio.pause()
+					btn_off.show()
+					btn_on.hide()
+				})
+				btn_off.on('click', function() {
+					audio.play()
+					btn_on.show()
+					btn_off.hide()
+				})
+				for (var i = 0; i < img_sources.length; i++) {
+					img_sources[i] = img_path + img_sources[i]
+				}
+				var loadImage = function(path, callback) {
+					var img = new Image()
+					img.onload = function() {
+						img.onload = null
+						callback(path)
+					}
+					img.src = path
+				}
+				var imgLoader = function(imgs, callback) {
+					var len = imgs.length,
+						i = 0
+					while (imgs.length) {
+						loadImage(imgs.shift(), function(path) {
+							callback(path, ++i, len)
+						})
+					}
+				}
+				var rate_num = $('#loading_rate')
+				var bar = $('#bar')
+				var percent = 0
+				var index = 0
+				imgLoader(img_sources, function(path, cur_num, total) {
+					percent = cur_num / total
+					bar.css('width', Math.floor(percent * 164))
+					rate_num.html(Math.floor(percent * 100) + '%')
+					if (percent == 1) {
+						imgLoadEnd()
+					}
+				})
+
+				function imgLoadEnd() {
+					$("#loading").addClass("hideOpacity")
+					setTimeout(function() {
+						$(".move_tip_icon").show()
+						$("#loading").remove()
+						setTimeout(function() {
+							$(".move_tip_box").remove()
+						}, 3000)
+					}, 1000)
+					var audio_str = '<audio id="audio_01" class="audio_lists" preload="auto" src="http://res-cdn.rhweb.changic.net.cn/xuannian/xuannian/mobile/media/audio_01.mp3"></audio>'
+					audio_str += '<audio id="audio_02" class="audio_lists" preload="auto" src="http://res-cdn.rhweb.changic.net.cn/xuannian/xuannian/mobile/media/audio_02.mp3"></audio>'
+					audio_str += '<audio id="audio_03" class="audio_lists" preload="auto" src="http://res-cdn.rhweb.changic.net.cn/xuannian/xuannian/mobile/media/audio_03.mp3"></audio>'
+					audio_str += '<audio id="audio_04" class="audio_lists" preload="auto" src="http://res-cdn.rhweb.changic.net.cn/xuannian/xuannian/mobile/media/audio_04.mp3"></audio>'
+					audio_str += '<audio id="audio_05" class="audio_lists" preload="auto" src="http://res-cdn.rhweb.changic.net.cn/xuannian/xuannian/mobile/media/audio_05.mp3"></audio>'
+					audio_str += '<audio id="audio_06" class="audio_lists" preload="auto" src="http://res-cdn.rhweb.changic.net.cn/xuannian/xuannian/mobile/media/audio_06.mp3"></audio>'
+					$("#audio_full_screen_box").html(audio_str)
+					$(".move_tip_box,.share_weixin,.main_city,.full_screen_tip,.gesture_tip_box").on("click", function() {
+						var _t = $(this)
+						_t.addClass("hideOpacity_5s")
+						setTimeout(function() {
+							_t.hide().removeClass("hideOpacity_5s")
+						}, 500)
+					})
+					var osUserAgent = navigator.userAgent.toLowerCase()
+					var eventName
+					if (/(iphone|android)/ig.test(osUserAgent)) {
+						eventName = ["touchstart", "touchmove", "touchend"]
+						$(".iwrap").css({
+							width: window.innerWidth,
+							height: window.innerHeight
+						})
+					} else {
+						eventName = ["mousedown", "mousemove", "mouseup"]
+					}
+					var stone_box = $(".stone_box")
+					var stone_parame = {
+						x: function() {
+							return stone_box.offset().left
+						},
+						y: function() {
+							return stone_box.offset().top
+						},
+						w: function() {
+							return this.x() + stone_box.width()
+						},
+						h: function() {
+							return this.y() + stone_box.height()
+						}
+					}
+					var mx = 0,
+						my = 0,
+						drag_num = 0
+					var darg_index
+					$(".drag_stone").on(eventName[0], function() {
+						darg_index = $(this).index()
+					}).on(eventName[2], function(event) {
+						var _t = $(this)
+							//event.targetTouches = event.originalEvent.targetTouches         
+						var targetTouches = (event.targetTouches && event.targetTouches[0]) || event
+						if (mx < stone_parame.w() && mx > stone_parame.x() && my < stone_parame.h() && my > stone_parame.y()) {
+							$(".stone").eq(darg_index).addClass("showOpacity")
+							_t.hide()
+							_t.off()
+							drag_num++
+							$('#audio2').get(0).play()
+							if (drag_num > 4) {
+								nextAni()
+							}
+						}
+						darg_index = undefined
+					})
+					$("body").on(eventName[1], function(event) {
+						event.preventDefault()
+						if (darg_index == undefined) return
+							//event.targetTouches = event.originalEvent.targetTouches
+						var targetTouches = (event.targetTouches && event.targetTouches[0]) || event
+						mx = targetTouches.clientX - 50
+						my = targetTouches.clientY - 50
+						$(".drag_stone").eq(darg_index).css({
+							left: mx,
+							top: my
+						})
+					})
+					var move = "left",
+						timer, tation = true
+					var cw = 4582,
+						tation_status = false,
+						container = $(".container")
+					var cx = 0,
+						cmx = 0,
+						cv = 0,
+						v = -2100,
+						dv = 0,
+						c_max = -(cw - window.innerWidth)
+					container.on(eventName[0], function(event) {
+						//event.targetTouches = event.originalEvent.targetTouches
+						var targetTouches = (event.targetTouches && event.targetTouches[0]) || event
+						cx = targetTouches.clientX
+							//container.removeClass("container_transition")
+							//tation_status = true  
+							//clearTimeout(timer)
+					}).on(eventName[2], function() {
+						v = cv
+							//tation_status = false
+							//container.addClass("container_transition")
+							/*
+							timer = setTimeout(function() {
+							    autoMoveScree()
+							}, 2500)
+							*/
+					}).on(eventName[1], function(event) {
+						//event.targetTouches = event.originalEvent.targetTouches
+						var targetTouches = (event.targetTouches && event.targetTouches[0]) || event
+						cmx = targetTouches.clientX
+							//move = cmx - cx > 0 ? "left" : "right"
+						cv = (cmx - cx) * 2 + v
+						setCont()
+							//tation_status = true
+							//clearTimeout(timer)
+					})
+
+					function setCont() {
+						cv = cv <= c_max ? c_max : cv
+						cv = cv >= 0 ? 0 : cv
+							/*
+							container.stop().animate({"transform": "translateX(" + cv +"px)","-webkit-transform": "translateX(" + cv +"px)"}, 800, function() {
+							    tation = true                
+							})
+							*/
+							//container.css({"-webkit-transform": "translate(" + cv +"px,0)","transform": "translate(" + cv +"px,0)"})
+						container.css({
+							"-webkit-transform": "translate3d(" + cv + "px,0,0)",
+							"transform": "translate3d(" + cv + "px,0,0)"
+						})
+					}
+
+					function autoMoveScree() {
+							switch (move) {
+								case "left":
+									v += 2
+									break;
+								case "right":
+									v -= 2
+									break;
+							}
+							if (v >= 0) {
+								move = "right"
+							} else if (v <= c_max) {
+								move = "left"
+							}
+							timer = setTimeout(function() {
+								container.css({
+									"-webkit-transform": "translate(" + v + "px,0)",
+									"transform": "translate(" + v + "px,0)"
+								})
+								autoMoveScree()
+							}, 30)
+						}
+						/*
+						var _beta, _alpha, _gamma
+        
+						window.addEventListener("deviceorientation", function(event) {
+						    if (tation_status) return
+						    if (!tation) return          
+						    var gamma = Math.round(event.gamma) + 90
+						    var alpha = Math.round(event.alpha)
+						    var beta = Math.round(event.beta)           
+						    if (_gamma != gamma && _alpha != alpha && _beta != beta) {
+						        _gamma = gamma
+						        _alpha = alpha
+						        _beta = beta
+						        cv = -Math.round((_gamma/180)*cw) + 120         
+						        setCont()
+						        v = cv
+						        tation = false
+						    }           
+						}, true)
+						*/
+
+					function nextAni() {
+						setTimeout(function() {
+							$(".round_03").addClass("round_03_show")
+							setTimeout(function() {
+								$(".light_box").show()
+								setTimeout(function() {
+									$(".round_04").addClass("round_04_rotate")
+									setTimeout(function() {
+										$(".light_box_02").show()
+										setTimeout(function() {
+											$(".light_box_03").show()
+											setTimeout(function() {
+												fullScreen()
+												setTimeout(function() {
+													$(".full_screen_tip").trigger("click")
+												}, 3500)
+											}, 1200)
+										}, 2000)
+									}, 1000)
+								}, 1000)
+							}, 1000)
+						}, 300)
+					}
+
+					function showGesture() {
+						$(".gesture_tip_box").show()
+						$(".gesture_tip_box").on("click", function() {
+							$(".full_screen_tip").off("click")
+						})
+						setTimeout(function() {
+							$(".gesture_tip_box").hide()
+						}, 3000)
+					}
+					$(".full_screen_tip").on("click", function() {
+						showGesture()
+					})
+
+					function fullScreen() {
+						$(".logo").show()
+						$(".full_screen_tip").show()
+						$(".container").addClass("showOpacity")
+						$(".drag_box").addClass("hideOpacity")
+						setTimeout(function() {
+							$(".drag_box").remove()
+						}, 1000)
+					}
+					$(".main_city_box").on("click", function() {
+						$(".main_city").show()
+						stopAudio()
+						$("#audio_01").get(0).play()
+					})
+					$(".off_the_door_box").on("click", function() {
+						$(".share_weixin").show()
+						stopAudio()
+						$("#audio_02").get(0).play()
+					})
+					$(".audio_box_01").on("click", function() {
+						stopAudio()
+						$("#audio_06").get(0).play()
+					})
+					$(".audio_box_02").on("click", function() {
+						stopAudio()
+						$("#audio_03").get(0).play()
+					})
+					$(".audio_box_03").on("click", function() {
+						stopAudio()
+						$("#audio_05").get(0).play()
+					})
+					$(".audio_box_04").on("click", function() {
+						stopAudio()
+						$("#audio_04").get(0).play()
+					})
+
+					function stopAudio() {
+						$(".audio_lists").each(function() {
+							var _t = $(this).get(0)
+							_t.currentTime = 0
+							_t.pause()
+						})
+					}
+					$(".audio_control").on("click", function() {
+						$(this).find("span").hide()
+					})
+				}
+			});
+		</script>
+
+	</body>
+
+</html>

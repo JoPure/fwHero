@@ -1,0 +1,133 @@
+.d-1 {
+	top: 0px;
+	left: 0px;
+	width: 151px;
+	height: 150px;
+	background: url("img/sprites.png") no-repeat -386px -0px;
+}
+.d-2 {
+	top: 0px;
+	left: 0px;
+	width: 68px;
+	height: 67px;
+	background: url("img/sprites.png") no-repeat -275px -488px;
+}
+.d-3 {
+	top: 0px;
+	left: 0px;
+	width: 68px;
+	height: 67px;
+	background: url("img/sprites.png") no-repeat -207px -488px;
+}
+.font-bg {
+	top: 0px;
+	left: 0px;
+	width: 386px;
+	height: 179px;
+	background: url("img/sprites.png") no-repeat -0px -0px;
+}
+.fuwen-1 {
+	top: 0px;
+	left: 0px;
+	width: 226px;
+	height: 225px;
+	background: url("img/sprites.png") no-repeat -0px -263px;
+}
+.fuwen-2 {
+	top: 0px;
+	left: 0px;
+	width: 226px;
+	height: 225px;
+	background: url("img/sprites.png") no-repeat -226px -263px;
+}
+.l-1 {
+	top: 0px;
+	left: 0px;
+	width: 102px;
+	height: 126px;
+	background: url("img/sprites.png") no-repeat -105px -488px;
+}
+.l-2 {
+	top: 0px;
+	left: 0px;
+	width: 68px;
+	height: 67px;
+	background: url("img/sprites.png") no-repeat -411px -488px;
+}
+.l-3 {
+	top: 0px;
+	left: 0px;
+	width: 68px;
+	height: 67px;
+	background: url("img/sprites.png") no-repeat -479px -446px;
+}
+.o-1 {
+	top: 0px;
+	left: 0px;
+	width: 105px;
+	height: 103px;
+	background: url("img/sprites.png") no-repeat -0px -488px;
+}
+.o-2 {
+	top: 0px;
+	left: 0px;
+	width: 67px;
+	height: 67px;
+	background: url("img/sprites.png") no-repeat -479px -513px;
+}
+.o-3 {
+	top: 0px;
+	left: 0px;
+	width: 67px;
+	height: 67px;
+	background: url("img/sprites.png") no-repeat -537px -0px;
+}
+.r-1 {
+	top: 0px;
+	left: 0px;
+	width: 128px;
+	height: 158px;
+	background: url("img/sprites.png") no-repeat -452px -288px;
+}
+.r-2 {
+	top: 0px;
+	left: 0px;
+	width: 68px;
+	height: 67px;
+	background: url("img/sprites.png") no-repeat -378px -179px;
+}
+.r-3 {
+	top: 0px;
+	left: 0px;
+	width: 68px;
+	height: 67px;
+	background: url("img/sprites.png") no-repeat -343px -488px;
+}
+.w-1 {
+	top: 0px;
+	left: 0px;
+	width: 136px;
+	height: 138px;
+	background: url("img/sprites.png") no-repeat -452px -150px;
+}
+.w-2 {
+	top: 0px;
+	left: 0px;
+	width: 67px;
+	height: 67px;
+	background: url("img/sprites.png") no-repeat -546px -513px;
+}
+.w-3 {
+	top: 0px;
+	left: 0px;
+	width: 67px;
+	height: 67px;
+	background: url("img/sprites.png") no-repeat -537px -67px;
+}
+.world-bg {
+	top: 0px;
+	left: 0px;
+	width: 350px;
+	height: 84px;
+	background: url("img/sprites.png") no-repeat -0px -179px;
+}
